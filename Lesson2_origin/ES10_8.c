@@ -41,14 +41,14 @@ int main() {
     char filename[50];
     sprintf(filename, "ES%d_%d.c", tm.tm_mon + 1, tm.tm_mday);
 
-    // ES10_8.c を Lesson(番号) ディレクトリにコピー
-    sprintf(command, "cp ES10_8.c Lesson%d/%s", lesson_number, filename);
+    // template.c を Lesson(番号) ディレクトリにコピー
+    sprintf(command, "cp template.c Lesson%d/%s", lesson_number, filename);
     result = system(command);
 
     if (result == 0) {
-        printf("File 'ES10_8.c' copied to 'Lesson%d/%s' successfully.\n", lesson_number, filename);
+        printf("File 'template.c' copied to 'Lesson%d/%s' successfully.\n", lesson_number, filename);
     } else {
-        printf("Failed to copy 'ES10_8.c' to 'Lesson%d/%s'.\n", lesson_number, filename);
+        printf("Failed to copy 'template.c' to 'Lesson%d/%s'.\n", lesson_number, filename);
     }
 
     // 新しい lesson_number をファイルに保存
