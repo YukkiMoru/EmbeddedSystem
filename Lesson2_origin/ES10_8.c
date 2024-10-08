@@ -31,6 +31,16 @@ int main() {
         printf("Failed to create directory 'Lesson%d'.\n", lesson_number);
     }
 
+    // main.c を Lesson(番号) ディレクトリにコピー
+    sprintf(command, "cp main.c Lesson%d/", lesson_number);
+    result = system(command);
+
+    if (result == 0) {
+        printf("File 'main.c' copied to 'Lesson%d' successfully.\n", lesson_number);
+    } else {
+        printf("Failed to copy 'main.c' to 'Lesson%d'.\n", lesson_number);
+    }
+
     // 新しい lesson_number をファイルに保存
     file = fopen(FILENAME, "w");
     if (file != NULL) {
