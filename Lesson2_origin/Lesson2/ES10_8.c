@@ -7,7 +7,8 @@
 // created 2024/10/8 by YukkiMoru
 
 int main() {
-    int lesson_number = 3; // 初期値
+    int lesson_number = 3;
+    // 初期値(次回は10/15なのでLesson3でES10_15.cになる)
     FILE *file;
 
     // ファイルから前回の lesson_number を読み込む
