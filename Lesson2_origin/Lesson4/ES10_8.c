@@ -3,12 +3,12 @@
 #include <time.h>
 
 #define FILENAME "lesson_number.txt"
+#define LOGFILE "readme.md"
 
 // created 2024/10/8 by YukkiMoru
 
 int main() {
-    int lesson_number = 3;
-    // 初期値(次回は10/15なのでLesson3でES10_15.cになる)
+    int lesson_number = 1; // 初期値
     FILE *file;
 
     // ファイルから前回の lesson_number を読み込む
@@ -19,7 +19,6 @@ int main() {
         lesson_number++; // インクリメント
     }
 
-    // C言語ではStringはない、文字列はcharの配列で表現する
     char command[100];
 
     // コマンドを作成
@@ -59,6 +58,15 @@ int main() {
         fclose(file);
     } else {
         printf("Failed to open file to save lesson number.\n");
+    }
+
+    // README.md にログを追加
+    file = fopen(LOGFILE, "a");
+    if (file != NULL) {
+        fprintf(file, "\n| %04d/%02d/%02d | %s |", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, filename);
+        fclose(file);
+    } else {
+        printf("Failed to open log file to save log.\n");
     }
 
     return 0;
