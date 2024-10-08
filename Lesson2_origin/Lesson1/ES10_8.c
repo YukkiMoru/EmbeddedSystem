@@ -63,7 +63,7 @@ int main() {
     // README.md にログを追加
     file = fopen(LOGFILE, "a");
     if (file != NULL) {
-        fprintf(file, "\n| %04d/%02d/%02d | %s |", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, filename);
+        fprintf(file, "\n| %04d/%02d/%02d | Lesson%d | %s |", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday ,lesson_number , filename);
         fclose(file);
     } else {
         printf("Failed to open log file to save log.\n");
