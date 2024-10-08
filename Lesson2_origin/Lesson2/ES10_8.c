@@ -7,7 +7,7 @@
 // created 2024/10/8 by YukkiMoru
 
 int main() {
-    int lesson_number = 1; // 初期値
+    int lesson_number = 3; // 初期値
     FILE *file;
 
     // ファイルから前回の lesson_number を読み込む
@@ -18,6 +18,7 @@ int main() {
         lesson_number++; // インクリメント
     }
 
+    // C言語ではStringはない、文字列はcharの配列で表現する
     char command[100];
 
     // コマンドを作成
