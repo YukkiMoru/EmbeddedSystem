@@ -1,6 +1,6 @@
 // fixed version of DFS.cpp
 // Depth First Search (DFS) の実装例 (スタックを用いた実装)
-// グラフ構造はDFS-GRAPH.pngを参照
+// グラフ構造はDFS1-GRAPH.pngを参照
 
 #include <iostream>
 #include <stack>
@@ -87,7 +87,20 @@ void depthFirstSearch(State initialState) {
         sort(nextStates.begin(), nextStates.end(), greater<State>()); // アルファベットの逆順にソート
         for (State nextState : nextStates) {
             if (closedList.find(nextState) == closedList.end()) {
-                openList.push(nextState);
+                // 未訪問の状態をオープンリストに追加
+                // ネクストステートがオープンリストにすでにあるものは追加しない
+                bool isExist = false;
+                stack<State> temp = openList;
+                while (!temp.empty()) {
+                    if (temp.top() == nextState) {
+                        isExist = true;
+                        break;
+                    }
+                    temp.pop();
+                }
+                if (!isExist) {
+                    openList.push(nextState);
+                }
             }
         }
     }
